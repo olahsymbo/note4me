@@ -20,11 +20,11 @@ def index(request):
 
             category = request.POST["category_select"]
 
-            tag = request.POST["tag"]
+#            tag = request.POST["tag"]
 
-            content = title + " -- " + date + " " + category + tag
+            content = title + " -- " + date + " " + category
 
-            Todo = Notes(title=title, content=content, due_date=date, category=Category.objects.get(name=category), tags = tag)
+            Todo = Notes(title=title, content=content, due_date=date, category=Category.objects.get(name=category))
 
             Todo.save()
 
