@@ -43,21 +43,3 @@ class notepost(generics.ListAPIView):
                     "result": data}
 
         return Response(response)
-
-    # def post(self, request):
-    #
-    #     title = request.POST["description"]
-    #
-    #     date = str(request.POST["date"])
-    #
-    #     category = request.POST["category_select"]
-    #
-    #     #            tag = request.POST["tag"]
-    #
-    #     content = title + " -- " + date + " " + category
-    #
-    #     Todo = Notes(title=title, content=content, due_date=date, category=Category.objects.get(name=category))
-    #
-    #     Todo.save()
-    #
-    #     return Response(status=status.HTTP_200_OK)
