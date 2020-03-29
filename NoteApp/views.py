@@ -1,46 +1,63 @@
 from django.shortcuts import render
-
+from rest_framework import generics, status
+from rest_framework.response import Response
+from .serializers import NoteSerializer, CategorySerializer
 from django.shortcuts import render,redirect
 
 from .models import Notes, Category
 
-def index(request):
 
-    todos = Notes.objects.all()
+class noteclass(generics.CreateAPIView):
 
-    categories = Category.objects.all()
+    queryset = Notes.objects.all()
+    serializer_class = NoteSerializer
 
-    if request.method == "POST":
+    def create(self, request, *args, **kwargs):
 
-        if "taskAdd" in request.POST:
+        super(noteclass, self).create(request, args, kwargs)
 
-            title = request.POST["description"]
+        response = {"status_code": status.HTTP_200_OK,
+                    "message": "Successfully created",
+                    "result": request.data}
 
-            date = str(request.POST["date"])
+        return Response(response)
 
-            category = request.POST["category_select"]
+class notepost(generics.ListAPIView):
 
-#            tag = request.POST["tag"]
+    queryset = Notes.objects.all()
 
-            content = title + " -- " + date + " " + category
+    serializer_class = NoteSerializer
 
-            Todo = Notes(title=title, content=content, due_date=date, category=Category.objects.get(name=category))
+    def retrieve(self, request, *args, **kwargs):
 
-            Todo.save()
+        super(notepost, self).retrieve(request, args, kwargs)
 
-            return redirect("/")
+        instance = self.get_object()
 
-        if "taskDelete" in request.POST:
+        serializer = self.get_serializer(instance)
 
-            checkedlist = request.POST["checkedbox"]
+        data = serializer.data
 
-            for todo_id in checkedlist:
+        response = {"status_code": status.HTTP_200_OK,
+                    "message": "Successfully retrieved",
+                    "result": data}
 
-                todo = Notes.objects.get(id=int(todo_id))
+        return Response(response)
 
-                todo.delete()
-
-    return render(request, "index.html",
-                  {"todos": todos,
-                   "categories":categories}
-                  )
+    # def post(self, request):
+    #
+    #     title = request.POST["description"]
+    #
+    #     date = str(request.POST["date"])
+    #
+    #     category = request.POST["category_select"]
+    #
+    #     #            tag = request.POST["tag"]
+    #
+    #     content = title + " -- " + date + " " + category
+    #
+    #     Todo = Notes(title=title, content=content, due_date=date, category=Category.objects.get(name=category))
+    #
+    #     Todo.save()
+    #
+    #     return Response(status=status.HTTP_200_OK)
