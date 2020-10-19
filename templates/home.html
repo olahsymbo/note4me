@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href = {% static "styles.css" %}>
+    <title>Note App</title>
+</head>
+<body>
+
+<h1>Notes</h1>
+<table>
+<tr class="header-tr">
+    <td>title</td>
+    <td>content</td>
+    <td>created</td>
+    <td>due_date</td>
+    <td>category</td>
+</tr>
+
+{% for row in data %}
+<tr class="body-tr">
+    <td>{{ row.title }}</td>
+    <td>{{ row.content }}</td>
+    <td>{{ row.created }}</td>
+    <td>{{ row.due_date }}</td>
+    <td>{{ row.category }}</td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
