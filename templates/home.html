@@ -1,36 +1,30 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% load static %}
-    <link rel="stylesheet" href = {% static "styles.css" %}>
-    <title>Note App</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Note Taking App</title>
+  <meta name="description" content="A minimal note application using Vanilla JavaScript.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href = {% static "styles.css" %}>
 </head>
 <body>
+  <h1>Note App</h1>
+  <form>
+    <textarea name="formNoteText" id="formNoteText" cols="50" rows="8" maxlength="300"></textarea>
+    <select name="formColor" id="formColor">
+      <option value="none">Select color</option>
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="yellow">Yellow</option>
+    </select>
+    <button id="formAddButton">Add note</button>
+  </form>
 
-<h1>Notes</h1>
-<table>
-<tr class="header-tr">
-    <td>title</td>
-    <td>content</td>
-    <td>created</td>
-    <td>due_date</td>
-    <td>category</td>
-</tr>
-
-{% for row in data %}
-<tr class="body-tr">
-    <td>{{ row.title }}</td>
-    <td>{{ row.content }}</td>
-    <td>{{ row.created }}</td>
-    <td>{{ row.due_date }}</td>
-    <td>{{ row.category }}</td>
-</tr>
-{% endfor %}
-</table>
+  <div id="notes"></div>
+  <script type="text/javascript" src="{% static 'index.js' %}"></script>
 
 </body>
 </html>

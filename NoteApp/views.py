@@ -1,46 +1,91 @@
 from django.shortcuts import render
-
+from rest_framework import generics, status
+from rest_framework.response import Response
+from .serializers import NoteSerializer, CategorySerializer
 from django.shortcuts import render,redirect
+import logging
 
 from .models import Notes, Category
 
-def index(request):
+logger = logging.getLogger(__name__)
 
-    todos = Notes.objects.all()
 
-    categories = Category.objects.all()
+class noteclass(generics.CreateAPIView):
 
-    if request.method == "POST":
+    queryset = Notes.objects.all()
+    serializer_class = NoteSerializer
 
-        if "taskAdd" in request.POST:
+    def create(self, request, *args, **kwargs):
 
-            title = request.POST["description"]
+        super(noteclass, self).create(request, args, kwargs)
 
-            date = str(request.POST["date"])
+        response = {"status_code": status.HTTP_200_OK,
+                    "message": "Successfully created",
+                    "result": request.data}
 
-            category = request.POST["category_select"]
+        return Response(response)
 
-#            tag = request.POST["tag"]
+    def homepage(request):
 
-            content = title + " -- " + date + " " + category
+        data = Notes.objects.all()
 
-            Todo = Notes(title=title, content=content, due_date=date, category=Category.objects.get(name=category))
+        context = {'data': data}
 
-            Todo.save()
+        logger.info(data)
 
-            return redirect("/")
+        return render(request, 'home.html', context)
 
-        if "taskDelete" in request.POST:
+class notepost(generics.ListAPIView):
 
-            checkedlist = request.POST["checkedbox"]
+    queryset = Notes.objects.all()
 
-            for todo_id in checkedlist:
+    serializer_class = NoteSerializer
 
-                todo = Notes.objects.get(id=int(todo_id))
+    def retrieve(self, request, *args, **kwargs):
 
-                todo.delete()
+        super(notepost, self).retrieve(request, args, kwargs)
 
-    return render(request, "index.html",
-                  {"todos": todos,
-                   "categories":categories}
-                  )
+        instance = self.get_object()
+
+        serializer = self.get_serializer(instance)
+
+        data = serializer.data
+
+        logger.info(data)
+
+        response = {"status_code": status.HTTP_200_OK,
+                    "message": "Successfully retrieved",
+                    "result": data}
+
+        return Response(response)
+
+
+    def indexpage(request):
+
+        data = Notes.objects.all()
+
+        context = {'data': data}
+
+        logger.info(data)
+
+        return render(request, 'display_note.html', context)
+
+
+
+    # def post(self, request):
+    #
+    #     title = request.POST["description"]
+    #
+    #     date = str(request.POST["date"])
+    #
+    #     category = request.POST["category_select"]
+    #
+    #     #            tag = request.POST["tag"]
+    #
+    #     content = title + " -- " + date + " " + category
+    #
+    #     Todo = Notes(title=title, content=content, due_date=date, category=Category.objects.get(name=category))
+    #
+    #     Todo.save()
+    #
+    #     return Response(status=status.HTTP_200_OK)

@@ -56,7 +56,9 @@ docs/_build/
 # PyBuilder
 target/
 
+
 # directory
+.idea/
 *.DS_Store
 manage.py
 db.sqlite3
