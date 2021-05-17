@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 #from taggit.managers import TaggableManager
 
+
 class Category(models.Model):
 
     name = models.CharField(max_length=100)
@@ -12,6 +13,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Notes(models.Model):
 
@@ -24,8 +26,6 @@ class Notes(models.Model):
     due_date = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
 
     category = models.ForeignKey(Category, default="general", on_delete= models.CASCADE)
-
-#    tags = TaggableManager()
 
     class Meta:
         ordering = ["-created"]

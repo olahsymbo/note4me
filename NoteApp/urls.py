@@ -8,7 +8,8 @@ from . import views
 routers = routers.DefaultRouter()
 
 urlpatterns = [
-    url(r'home.html/', views.noteclass.homepage, name=None),
-    url(r'retrieve/', views.notepost.as_view(), name=None),
-    url(r'display_note.html/', views.notepost.indexpage),
+    url(r'home', views.index, name=None),
+    url(r'create_note', views.make_note, name=None),
+    url(r'display_note', views.list_note, name=None),
+    url(r'contact', views.contact, name=None)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

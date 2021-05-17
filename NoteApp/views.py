@@ -1,8 +1,5 @@
-from django.shortcuts import render
-from rest_framework import generics, status
-from rest_framework.response import Response
-from .serializers import NoteSerializer, CategorySerializer
-from django.shortcuts import render,redirect
+from .forms import NoteForm
+from django.shortcuts import render, redirect
 import logging
 
 from .models import Notes, Category
@@ -10,82 +7,30 @@ from .models import Notes, Category
 logger = logging.getLogger(__name__)
 
 
-class noteclass(generics.CreateAPIView):
+def index(request):
 
-    queryset = Notes.objects.all()
-    serializer_class = NoteSerializer
+    form = "Welcome"
 
-    def create(self, request, *args, **kwargs):
-
-        super(noteclass, self).create(request, args, kwargs)
-
-        response = {"status_code": status.HTTP_200_OK,
-                    "message": "Successfully created",
-                    "result": request.data}
-
-        return Response(response)
-
-    def homepage(request):
-
-        data = Notes.objects.all()
-
-        context = {'data': data}
-
-        logger.info(data)
-
-        return render(request, 'home.html', context)
-
-class notepost(generics.ListAPIView):
-
-    queryset = Notes.objects.all()
-
-    serializer_class = NoteSerializer
-
-    def retrieve(self, request, *args, **kwargs):
-
-        super(notepost, self).retrieve(request, args, kwargs)
-
-        instance = self.get_object()
-
-        serializer = self.get_serializer(instance)
-
-        data = serializer.data
-
-        logger.info(data)
-
-        response = {"status_code": status.HTTP_200_OK,
-                    "message": "Successfully retrieved",
-                    "result": data}
-
-        return Response(response)
+    return render(request, 'home.html', {'form': form})
 
 
-    def indexpage(request):
+def make_note(request):
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/home/', id=form)
+    else:
+        form = NoteForm()
+    return render(request, 'create_note.html', {'form': form})
 
-        data = Notes.objects.all()
 
-        context = {'data': data}
-
-        logger.info(data)
-
-        return render(request, 'display_note.html', context)
+def list_note(request):
+    form = Notes.objects.all()
+    return render(request, 'display_note.html', {'form': form})
 
 
-
-    # def post(self, request):
-    #
-    #     title = request.POST["description"]
-    #
-    #     date = str(request.POST["date"])
-    #
-    #     category = request.POST["category_select"]
-    #
-    #     #            tag = request.POST["tag"]
-    #
-    #     content = title + " -- " + date + " " + category
-    #
-    #     Todo = Notes(title=title, content=content, due_date=date, category=Category.objects.get(name=category))
-    #
-    #     Todo.save()
-    #
-    #     return Response(status=status.HTTP_200_OK)
+def contact(request):
+    form = "contact us"
+    return render(request, 'contact.html', {'form': form})

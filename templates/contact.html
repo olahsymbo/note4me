@@ -2,22 +2,22 @@
 
 {% load static %}
 
-{% block homeactive %}active{% endblock %}
+{% block makeactive %}active{% endblock %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Contact Us{% endblock %}
 
 {% block body %}
 <div class="slides">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://source.unsplash.com/600x200/?laptop,writing" class="d-block w-100" alt="...">
+        <img src="https://source.unsplash.com/600x200/?contact,message" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://source.unsplash.com/600x200/?nature,party" class="d-block w-100" alt="...">
+        <img src="https://source.unsplash.com/600x200/?phone,clerk" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://source.unsplash.com/600x200/?technology,water" class="d-block w-100" alt="...">
+        <img src="https://source.unsplash.com/600x200/?contact,center" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -28,6 +28,6 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div>
+    </div>
 </div>
 {% endblock body %}
