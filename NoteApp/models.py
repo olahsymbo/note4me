@@ -25,7 +25,7 @@ class Notes(models.Model):
 
     due_date = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
 
-    category = models.ForeignKey(Category, default="general", on_delete= models.CASCADE)
+    category = models.ForeignKey(Category, default="general", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["-created"]

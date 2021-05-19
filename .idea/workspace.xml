@@ -19,17 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e12bb2fc-0c4b-4738-bc19-eab8b0356136" name="Default Changelist" comment="Added js and html">
-      <change afterPath="$PROJECT_DIR$/NoteApp/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
+    <list default="true" id="e12bb2fc-0c4b-4738-bc19-eab8b0356136" name="Default Changelist" comment="add views, jinja templating">
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Note4Me/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Note4Me/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NoteApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/NoteApp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NoteApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NoteApp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/create_note.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create_note.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +52,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="825" />
   </component>
   <component name="ProjectId" id="1j5QmxTtvjvxS8Vl1TgMzctQaxI" />
   <component name="ProjectViewState">
@@ -147,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617098845015</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add views, jinja templating">
+      <created>1621245522433</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621245522433</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -174,12 +172,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added js and html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added js and html" />
+    <MESSAGE value="add views, jinja templating" />
+    <option name="LAST_COMMIT_MESSAGE" value="add views, jinja templating" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1617098855559">
+    <state x="462" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1621438183843">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1617098855559" />
+    <state x="462" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1621438183843" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1621245549507">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1621245549507" />
   </component>
 </project>
