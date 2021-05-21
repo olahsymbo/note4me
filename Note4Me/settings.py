@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-#from credentials_db import *
+import django
+from db_config import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -86,8 +87,12 @@ WSGI_APPLICATION = 'Note4Me.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('name'),
+        'USER': os.environ.get('user'),
+        'PASSWORD': os.environ.get('password'),
+        'HOST': os.environ.get('host'),
+        'PORT': os.environ.get('port')
     }
 }
 

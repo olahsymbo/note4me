@@ -1,11 +1,10 @@
 from django.db import models
 from django.utils import timezone
-#from taggit.managers import TaggableManager
 
 
 class Category(models.Model):
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=300)
 
     class Meta:
         verbose_name = ("Category")
@@ -17,7 +16,7 @@ class Category(models.Model):
 
 class Notes(models.Model):
 
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=300)
 
     content = models.TextField(blank=True)
 
