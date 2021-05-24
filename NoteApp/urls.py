@@ -10,6 +10,6 @@ routers = routers.DefaultRouter()
 urlpatterns = [
     url(r'home', views.index, name=None),
     url(r'create_note', views.make_note, name=None),
-    url(r'display_note', views.list_note, name=None),
+    url(r'display_note', views.list_note, name="display"),
     url(r'contact', views.contact, name=None)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
