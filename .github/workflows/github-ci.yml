@@ -22,6 +22,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: mkdir -p Note4me/htmlcov
+      - name: Configure GPG Key
+        uses: crazy-max/ghaction-import-gpg@v3
+        with:
+          gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
+          passphrase: ${{ secrets.SECRET_PWD }}
+          git-user-signingkey: true
+          git-commit-gpgsign: true
+      - name: Reveal secrets
+        env:
+          SECRET_PWD: ${{ secrets.SECRET_PWD }}
+        run: |
+          sudo apt install git-secret
+          git secret tell olahsymbo@gmail.com
+          git secret reveal -p $(echo $SECRET_PWD | sed 's/./& /g')
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
