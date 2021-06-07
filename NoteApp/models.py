@@ -7,8 +7,8 @@ class Category(models.Model):
     name = models.CharField(max_length=300)
 
     class Meta:
-        verbose_name = ("Category")
-        verbose_name_plural = ("Categories")
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
     def __str__(self):
         return self.name
@@ -27,6 +27,8 @@ class Notes(models.Model):
     category = models.ForeignKey(Category, default="general", on_delete=models.CASCADE)
 
     class Meta:
+        verbose_name = "Notes"
+        verbose_name_plural = "Notes"
         ordering = ["-created"]
 
     def __str__(self):
