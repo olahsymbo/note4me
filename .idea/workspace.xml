@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e12bb2fc-0c4b-4738-bc19-eab8b0356136" name="Default Changelist" comment="Added js and html">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/github-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/github-ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
