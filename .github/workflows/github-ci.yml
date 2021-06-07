@@ -34,7 +34,7 @@ jobs:
           SECRET_PWD: ${{ secrets.PASSPHRASE }}
         run: |
           sudo apt install git-secret
-          git secret reveal -p ${{ secrets.SECRET_PWD }}
+          git secret reveal
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
