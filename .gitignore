@@ -58,7 +58,7 @@ target/
 
 
 # directory
-.idea/
+*.idea/
 *.DS_Store
 db.sqlite3
 Noteenv
