@@ -25,11 +25,13 @@ jobs:
       - name: Configure GPG Key
         uses: crazy-max/ghaction-import-gpg@v3
         with:
-          gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
-          passphrase: ${{ secrets.SECRET_PWD }}
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          git-user-signingkey: true
+          git-commit-gpgsign: true
       - name: Reveal secrets
         env:
-          SECRET_PWD: ${{ secrets.SECRET_PWD }}
+          SECRET_PWD: ${{ secrets.PASSPHRASE }}
         run: |
           sudo apt install git-secret
           git secret tell olahsymbo@gmail.com
