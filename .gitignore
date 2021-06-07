@@ -63,5 +63,4 @@ target/
 db.sqlite3
 Noteenv
 models.py
-.env
 helpers/db_config.py
