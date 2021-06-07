@@ -11,12 +11,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: mkdir -p hypelytics-ml/htmlcov
-      - run: echo hello > hypelytics-ml/htmlcov/coverage-text.html
-      - name: Set up Python 3.7
+      - run: mkdir -p Note4me/htmlcov
+      - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: 3.8
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -37,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report
-          path: hypelytics-ml/htmlcov/coverage-text.html
+          path: Note4me/htmlcov/coverage-text.html
