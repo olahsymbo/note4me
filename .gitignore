@@ -64,3 +64,6 @@ db.sqlite3
 Noteenv
 models.py
 helpers/db_config.py
+.gitsecret/keys/random_seed
+!*.secret
+.env
