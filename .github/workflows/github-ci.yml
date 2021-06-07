@@ -27,8 +27,6 @@ jobs:
         with:
           gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
           passphrase: ${{ secrets.SECRET_PWD }}
-          git-user-signingkey: true
-          git-commit-gpgsign: true
       - name: Reveal secrets
         env:
           SECRET_PWD: ${{ secrets.SECRET_PWD }}
