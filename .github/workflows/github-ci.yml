@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: mkdir -p Note4me/htmlcov
+      - run: mkdir -p Note4me/htmlcov/report.html
       - name: Configure GPG Key
         uses: crazy-max/ghaction-import-gpg@v3
         with:
@@ -55,4 +55,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: code-coverage-report
-          path: Note4me/htmlcov/
+          path: Note4me/htmlcov/report.html
