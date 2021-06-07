@@ -3,11 +3,7 @@ name: Note4me
 on:
   push:
     branches:
-      - dev
-
-  pull_request:
-    branches:
-      - dev
+      - master
 
 jobs:
   build:
