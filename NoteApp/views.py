@@ -1,22 +1,18 @@
 from .forms import NoteForm
 from django.shortcuts import render, redirect
 import logging
-
-from .models import Notes, Category
+from .models import Notes
 
 logger = logging.getLogger(__name__)
 
 
 def index(request):
-
     form = "Welcome"
-
     return render(request, 'home.html', {'form': form})
 
 
 def make_note(request):
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = NoteForm(request.POST)
         if form.is_valid():
             form.save()
