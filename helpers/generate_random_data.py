@@ -35,5 +35,5 @@ for i in range(1000):
         (title, content, created, due_date),
     )
 con.commit()
-print("Records created successfully")
+print("Records created successfully!")
 con.close()
